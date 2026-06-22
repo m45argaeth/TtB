@@ -75,7 +75,7 @@ export function SiteFooter() {
               rel="noreferrer"
               className="font-medium text-foreground hover:underline"
             >
-              Ga · Curious About Everything 🔍
+              Ga | Curious About Everything 🔍
             </a>
           </p>
         </div>
