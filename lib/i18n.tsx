@@ -4,8 +4,8 @@ import * as React from "react";
 import type { TextStats } from "@/lib/binary";
 
 export type Locale = "en" | "id";
-export const LOCALES: Locale[] = ["en", "id"];
-export const DEFAULT_LOCALE: Locale = "en";
+export const LOCALES: Locale[] = ["id", "en"];
+export const DEFAULT_LOCALE: Locale = "id";
 const STORAGE_KEY = "ttb-locale";
 
 const en = {

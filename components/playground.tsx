@@ -139,14 +139,14 @@ export function Playground() {
 
       {/* Tabs */}
       <div>
-        <div className="flex flex-wrap gap-1.5 rounded-full border bg-muted/40 p-1">
+        <div className="flex flex-nowrap gap-1.5 overflow-x-auto rounded-full border bg-muted/40 p-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {tabs.map((item) => (
             <button
               key={item.key}
               type="button"
               onClick={() => setTab(item.key)}
               className={cn(
-                "rounded-full px-4 py-1.5 text-sm font-medium transition-colors",
+                "shrink-0 whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition-colors",
                 tab === item.key
                   ? "bg-background text-foreground shadow-sm"
                   : "text-muted-foreground hover:text-foreground",
