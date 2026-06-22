@@ -23,11 +23,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Text To Binary — To a computer, every letter is a number.",
+    default: "Text To Binary — Bagi komputer, setiap huruf adalah angka.",
     template: "%s · Text To Binary",
   },
   description:
-    "An educational playground that helps you understand how computers store and process text using binary. Watch your words become numbers and 0s and 1s in real time.",
+    "Playground edukatif yang membantu kamu memahami bagaimana komputer menyimpan dan memproses teks menggunakan biner. Saksikan kata-katamu berubah menjadi angka dan deretan 0 dan 1 secara real-time.",
   keywords: [
     "binary",
     "ASCII",
@@ -42,14 +42,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Text To Binary",
     description:
-      "See how computers transform human language into numbers and binary data.",
+      "Lihat bagaimana komputer mengubah bahasa manusia menjadi angka dan data biner.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Text To Binary",
     description:
-      "See how computers transform human language into numbers and binary data.",
+      "Lihat bagaimana komputer mengubah bahasa manusia menjadi angka dan data biner.",
   },
 };
 
