@@ -7,7 +7,7 @@ import { PlaygroundIntro } from "@/components/playground-intro";
 export const metadata: Metadata = {
   title: "Playground",
   description:
-    "Type anything and watch it become numbers and binary in real time.",
+    "Ketik apa saja dan saksikan ia berubah menjadi angka dan biner secara real-time.",
 };
 
 export default function PlaygroundPage() {
