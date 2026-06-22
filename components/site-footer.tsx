@@ -65,16 +65,17 @@ export function SiteFooter() {
           <p>
             © {year} Text To Binary · {t.footer.tagline2}
           </p>
-          <p className="flex items-center gap-1.5">
-            {t.footer.madeWith}{" "}
+          <p className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 sm:justify-end">
+            <span>{t.footer.madeWith}</span>
+            <Heart className="h-3.5 w-3.5 fill-current text-red-500" />
+            <span>{t.footer.by}</span>
             <a
               href="https://x.com/sinigajelasin"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1 font-medium text-foreground hover:underline"
+              className="font-medium text-foreground hover:underline"
             >
-              Ga <Heart className="h-3.5 w-3.5 fill-current text-red-500" /> |
-              Curious About Everything 🔍
+              Ga · Curious About Everything 🔍
             </a>
           </p>
         </div>

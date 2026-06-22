@@ -151,7 +151,8 @@ const en = {
     aboutNoData: "No database",
     tagline2: "Humans read letters. Computers read binary.",
     disclaimer: "Encoding shown is UTF-8 — the standard for modern text.",
-    madeWith: "Made with ❤️ by",
+    madeWith: "Made with",
+    by: "by",
   },
 };
 
@@ -301,7 +302,8 @@ const id: Dict = {
     tagline2: "Manusia membaca huruf. Komputer membaca biner.",
     disclaimer:
       "Pengodean yang ditampilkan adalah UTF-8 — standar untuk teks modern.",
-    madeWith: "Dibuat dengan ❤️ oleh",
+    madeWith: "Dibuat dengan",
+    by: "oleh",
   },
 };
 
