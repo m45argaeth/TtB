@@ -3,10 +3,16 @@
 > **To a computer, every letter is a number.**
 > **Bagi komputer, setiap huruf adalah angka.**
 
+<div align="center">
+
 ![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwindcss)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4-38bdf8?logo=tailwindcss)
 ![Vercel](https://img.shields.io/badge/Vercel-Deployed-000?logo=vercel)
+
+🔗 **Live → [ttb-playground.vercel.app](https://ttb-playground.vercel.app)**
+
+</div>
 
 ---
 
@@ -16,26 +22,25 @@
 
 No server. No uploads. 100% client-side.
 
-🔗 **Live:** [ttb-playground.vercel.app](https://ttb-playground.vercel.app)
-
 ---
 
 ## ✨ Features
 
 | Feature | Description |
 |---|---|
-| 🔤 **Character Inspector** | Click any character to see its code point, ASCII value, and binary |
-| 🔢 **Step-by-Step Conversion** | Watch each character convert from letter → decimal → binary |
-| 🧠 **Educational Mode** | Guided explanations of how encoding works |
-| 🤖 **AI Perspective** | See text the way a computer "sees" it |
-| 📊 **Stats Panel** | Byte count, character count, encoding info at a glance |
-| 🎬 **Visual Storage** | Animated visualization of how text is stored in memory |
+| 🔤 **Character Inspector** | Click any character to see code point, hex, binary, bits, and UTF-8 bytes |
+| 🔢 **Step-by-Step Conversion** | 4-level cascade: Text → Unicode Values → Binary → Bytes/Stats |
+| 🧠 **Educational Mode** | Auto-generated step-by-step explanations of how encoding works |
+| 🤖 **AI Perspective** | Side-by-side "humans see" vs "computers see" (raw binary) comparison |
+| 📊 **Stats Panel** | Live character, word, byte, bit count & storage in MB |
+| 🎬 **Visual Storage** | Animated memory cell visualization: text → numbers → binary → cells |
 | 💡 **Fun Facts** | Random tidbits about binary, encoding, and computing history |
-| 🌗 **Dark / Light Theme** | Toggle between themes, with system preference support |
+| 🌗 **Dark / Light Theme** | Toggle between themes with system preference support |
 | 🌏 **Bahasa Indonesia / English** | Full bilingual UI with seamless language switching |
-| 📤 **Share & Export** | Export your conversion as an image, share via URL |
-| 🌧️ **Binary Rain** | Matrix-style background animation |
+| 📤 **Share & Export** | Export conversion as PNG (pure canvas), share via URL with `?text=` param |
+| 🌧️ **Binary Rain** | Matrix-style canvas background animation (respects reduced-motion) |
 | 📱 **Responsive** | Works on desktop and mobile |
+| 🔒 **Privacy-First** | Everything runs in your browser — no data leaves your device |
 
 ---
 
@@ -44,11 +49,14 @@ No server. No uploads. 100% client-side.
 | Category | Technology |
 |---|---|
 | Framework | [Next.js 15](https://nextjs.org/) (App Router) |
-| Language | [TypeScript](https://www.typescriptlang.org/) |
-| Styling | [Tailwind CSS](https://tailwindcss.com/) |
-| Components | [shadcn/ui](https://ui.shadcn.com/) |
+| Language | [TypeScript 5](https://www.typescriptlang.org/) |
+| Styling | [Tailwind CSS 3.4](https://tailwindcss.com/) |
+| Components | [shadcn/ui](https://ui.shadcn.com/) (new-york style) |
 | Theming | [next-themes](https://github.com/pacocoursey/next-themes) |
-| i18n | Custom (Bahasa Indonesia / English) |
+| Icons | [lucide-react](https://lucide.dev/) |
+| Fonts | Inter (sans) + JetBrains Mono (mono) via next/font |
+| i18n | Custom React Context (Bahasa Indonesia / English) |
+| Utilities | clsx, tailwind-merge, class-variance-authority |
 
 ---
 
@@ -56,40 +64,36 @@ No server. No uploads. 100% client-side.
 
 ```
 ├── app/
-│   ├── globals.css
-│   ├── layout.tsx
-│   ├── page.tsx
+│   ├── globals.css                    # Global styles & CSS variables
+│   ├── layout.tsx                     # Root layout (fonts, providers, header/footer)
+│   ├── page.tsx                       # Landing page (Hero, Features, Fun Facts, CTA)
 │   └── playground/
-│       └── page.tsx
+│       └── page.tsx                   # Playground page
 ├── components/
-│   ├── ai-perspective.tsx
-│   ├── binary-rain.tsx
-│   ├── character-inspector.tsx
-│   ├── conversion-view.tsx
-│   ├── educational-mode.tsx
-│   ├── fun-facts.tsx
-│   ├── hero.tsx
-│   ├── landing-sections.tsx
-│   ├── language-toggle.tsx
-│   ├── playground-intro.tsx
-│   ├── playground.tsx
-│   ├── share-features.tsx
-│   ├── site-footer.tsx
-│   ├── site-header.tsx
-│   ├── stats-panel.tsx
-│   ├── theme-provider.tsx
-│   ├── theme-toggle.tsx
-│   ├── visual-storage.tsx
+│   ├── playground.tsx                 # Main playground orchestrator (5 tabs)
+│   ├── conversion-view.tsx            # 4-level visual cascade
+│   ├── character-inspector.tsx        # Clickable char → code point detail
+│   ├── ai-perspective.tsx             # Human vs Computer view
+│   ├── visual-storage.tsx             # Animated memory cell visualization
+│   ├── educational-mode.tsx           # Step-by-step explanations
+│   ├── share-features.tsx             # Copy Binary, Copy ASCII, Export PNG, Share
+│   ├── stats-panel.tsx                # Live stats grid
+│   ├── hero.tsx                       # Landing hero with animated demo
+│   ├── landing-sections.tsx           # Feature grid + CTA
+│   ├── fun-facts.tsx                  # Computing trivia
+│   ├── binary-rain.tsx                # Matrix-style canvas background
+│   ├── site-header.tsx / site-footer.tsx
+│   ├── language-toggle.tsx / theme-toggle.tsx
 │   └── ui/
 │       └── button.tsx
 ├── lib/
-│   ├── binary.ts
-│   ├── examples.ts
-│   ├── export-image.ts
-│   ├── i18n.tsx
-│   ├── share.ts
-│   ├── site-config.ts
-│   └── utils.ts
+│   ├── binary.ts                      # Core engine: UTF-8 encoding, getChars(), getStats()
+│   ├── i18n.tsx                       # Bilingual i18n system (id/en)
+│   ├── site-config.ts                 # Site data, projects, universes
+│   ├── examples.ts                    # 10 curated example strings
+│   ├── export-image.ts                # Pure canvas PNG export
+│   ├── share.ts                       # Share link builder & clipboard
+│   └── utils.ts                       # cn() utility
 └── ...
 ```
 
@@ -129,25 +133,49 @@ npm start
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/m45argaeth/TtB)
 
+> 🚀 Deployed automatically to [Vercel](https://vercel.com/) on every push to `main`.
+
 ---
 
 ## 🔒 Privacy
 
-**Everything runs in your browser.** No data is sent to any server. Your text stays on your device — all conversions happen locally in JavaScript.
+**Everything runs in your browser.** No data is sent to any server. Your text stays on your device — all conversions happen locally in JavaScript. Even the PNG export is pure canvas rendering, no external services.
 
 ---
 
-## 🧩 Part of a Series
+## 🧩 Part of the "Sini Gajelasin" Series
 
-TtB is part of a collection of educational playgrounds exploring how computers represent data:
+TtB is one of many educational playgrounds under the **[Sini Gajelasin](https://sinigajelasin.vercel.app)** hub — *Curious About Everything*.
 
-| Playground | Topic | Link |
-|---|---|---|
-| 🔤 **TtB** | Text → Binary | [ttb-playground.vercel.app](https://ttb-playground.vercel.app) · [GitHub](https://github.com/m45argaeth/TtB) |
-| 🔢 **EBN** | Media → Numbers | [ebn-playground.vercel.app](https://ebn-playground.vercel.app) · [GitHub](https://github.com/m45argaeth/EBN) |
+### 🪐 EBN Universe — How Computers Process Data
+
+| # | Playground | Topic | Status | Link |
+|---|---|---|---|---|
+| 1 | 🔢 **EBN** | Media → Numbers | 🟢 Live | [ebn-playground.vercel.app](https://ebn-playground.vercel.app) · [GitHub](https://github.com/m45argaeth/EBN) |
+| 2 | 🔤 **TtB** | Text → Binary | 🟢 Live | [ttb-playground.vercel.app](https://ttb-playground.vercel.app) · [GitHub](https://github.com/m45argaeth/TtB) |
+| 3 | 🔡 **Token Explorer** | Text → Tokens | 🟢 Live | [te-playground.vercel.app](https://te-playground.vercel.app) · [GitHub](https://github.com/m45argaeth/TE) |
+| 4 | 🎬 **Video Frame Explorer** | Video → Frames | 🟢 Live | [vfe-playground.vercel.app](https://vfe-playground.vercel.app) · [GitHub](https://github.com/m45argaeth/VFE) |
+| 5 | 🧠 **Embedding Explorer** | Words → Vectors | 🟡 WIP | — |
+| 6 | 💬 **Prompt Explorer** | Prompt → Tokens → Output | 🟡 WIP | — |
+| 7 | 🤥 **Hallucination Explorer** | LLM Hallucination | 🟡 WIP | — |
+| 8 | 📦 **Compression Explorer** | Data → Compression | 🟡 WIP | — |
+| 9 | 🌐 **Internet Packet Explorer** | Data → Packets | 🟡 WIP | — |
+| 10 | 🤖 **Human vs AI Explorer** | Human vs AI Processing | 🟡 WIP | — |
+
+### 🧬 Human Mind Universe — How We Think
+
+| # | Playground | Topic | Status | Link |
+|---|---|---|---|---|
+| 11 | 🔍 **Bias Detector** | Cognitive Biases | 🟢 Live | [bd-playground-snowy.vercel.app](https://bd-playground-snowy.vercel.app) · [GitHub](https://github.com/m45argaeth/BD) |
+| 12 | 🧠 **Memory Explorer** | Memory Systems | 🟡 WIP | — |
+| 13 | 🌀 **False Memory Explorer** | False Memories | 🟡 WIP | — |
+| 14 | 👁️ **Attention Explorer** | Attention & Focus | 🟡 WIP | — |
+| 15 | 💊 **Dopamine Explorer** | Dopamine Loops | 🟡 WIP | — |
 
 ---
 
 ## 👤 Author
 
-Made with ❤️ by [Arga](https://github.com/m45argaeth) · Curious About Everything 🔍
+**Arga** — [GitHub](https://github.com/m45argaeth) · [Twitter/X](https://x.com/sinigajelasin) · [Blog](https://www.kompasiana.com/argacahyanugraha6628)
+
+Made with ❤️ as part of **[Sini Gajelasin](https://sinigajelasin.vercel.app)** — *Curious About Everything* 🔍
